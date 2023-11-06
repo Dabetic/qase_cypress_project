@@ -1,9 +1,7 @@
 const loginPage = {
-
-"email": "[name='email']",
-"password": "[name='password']",
-"signInBtn": "[type='submit']"
-
+    "email": "[name='email']",
+    "password": "[name='password']",
+    "signInBtn": "[type='submit']"
 }
 
 module.exports = {
