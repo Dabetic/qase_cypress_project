@@ -6,7 +6,7 @@ const navigationPage = {
 "userMenuBtn": ".KDFykF",
 
 //XPath
-"SignOutBtn": "//*[contains(text(), 'Sign out')]"
+"signOutBtn": "//*[contains(text(), 'Sign out')]"
 
 }
 

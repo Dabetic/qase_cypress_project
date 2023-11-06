@@ -9,7 +9,7 @@ const projectPage = {
 
 "searchForProjectInput": ".form-control",
 "kebabMenu": ".ZwgkIF > .svg-inline--fa",
-"kebamRemoveBtn": '[class="KXyzbV IhDC1_ rHqCyR"]',
+"kebabRemoveBtn": '[class="KXyzbV IhDC1_ rHqCyR"]',
 "kebabDeleteProjectBtn": ".b_jd28 > .ZwgkIF",
 
 
