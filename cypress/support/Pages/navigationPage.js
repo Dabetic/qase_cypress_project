@@ -1,9 +1,9 @@
 const navigationPage = {
     //CSS 
-    "projectsBtn": ".prLoyX:nth-child(2)",
-    "userMenuBtn": ".KDFykF",
+    projectsBtn: ".prLoyX:nth-child(2)",
+    userMenuBtn: ".KDFykF",
     //XPath
-    "signOutBtn": "//*[contains(text(), 'Sign out')]"
+    signOutBtn: "//*[contains(text(), 'Sign out')]"
 }
 
 module.exports = {

@@ -1,14 +1,23 @@
 
 beforeEach(() => {
-
-  cy.login('milos.dabetic@gmail.com', 'Milosdabetic90');
-
+  cy.login('milos.dabetic@gmail.com', 'Milosdabetic90&');
 })
 
 describe('qase', () => {
-  it('createNewProject', () => {
 
-    cy.createProject('TestProject', 'TP', 'Testing description text', 'Private', "Don't add members");
+  it.skip('createNewProject', () => {
+
+    cy.createProject('TestProject', 
+    'TP', 
+    'Testing description text', 
+    'Private', 
+    "Don't add members");
+
+  }),
+
+  it('createTestSuite', () => {
+
+    cy.createTestSuit("nameT", "desc1", "no Preconditions");
 
   })
 
@@ -18,10 +27,10 @@ describe('qase', () => {
 
   })
 
-  after(() => {
+  // after(() => {
 
-    cy.deleteCreatedProject();
+  //   cy.deleteCreatedProject();
 
-  })
+  // })
 
 })

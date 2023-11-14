@@ -1,7 +1,7 @@
 import { loginPage } from "../support/Pages/loginPage";
 import { projectPage } from "./Pages/projectPage";
 import { navigationPage } from "../support/Pages/navigationPage";
-
+import { repositoryPage } from "./Pages/reposistoryPage";
 
 /**
  * @memberof cy
@@ -21,6 +21,8 @@ Cypress.Commands.add('login', (email, password) => {
   cy.get(loginPage.email).clear().type(email);
   cy.get(loginPage.password).clear().type(password);
   cy.get(loginPage.signInBtn).click();
+
+  cy.url().should('eq', 'https://app.qase.io/projects')
 
 })
 
@@ -59,6 +61,9 @@ Cypress.Commands.add('createProject', (testProjName, codeName, description, proj
 
   cy.xpath(projectPage.createAProjectBtn).click();
 
+  cy.get(navigationPage.projectsBtn).click();
+  cy.get(projectPage.searchForProjectInput).clear().type('TestProject');
+  cy.xpath(projectPage.createdProjectSelection).click();
 
 })
 
@@ -83,3 +88,27 @@ Cypress.Commands.add('deleteCreatedProject', () => {
   cy.url().should('eq', 'https://app.qase.io/login');
 
 })
+
+/**
+ * @memberof cy
+ * @method createTestSuit
+ */
+
+Cypress.Commands.add('createTestSuit', (name, description, preconditions ) => {
+
+  cy.get(projectPage.searchForProjectInput).clear().type('TestProject');
+  cy.xpath(projectPage.createdProjectSelection).click();
+
+  cy.wait(3000);
+
+  cy.get(repositoryPage.createATestSuitBtn).click();
+  cy.get(repositoryPage.testSuitName).clear().type(name);
+  cy.get(repositoryPage.partnetSuitInput).click();
+
+  cy.get(repositoryPage.projectRootOptin).click();
+
+  cy.get(repositoryPage.descriptionInput).eq(0).clear().type(description);
+  cy.get(repositoryPage.preconditionsInput).eq(1).clear().type(preconditions);
+  cy.get(repositoryPage.createBtn).click();
+})
+
