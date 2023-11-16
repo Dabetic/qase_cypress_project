@@ -1,7 +1,8 @@
-import { loginPage } from "../support/Pages/loginPage";
+import { loginPage } from "./Pages/loginPage";
 import { projectPage } from "./Pages/projectPage";
-import { navigationPage } from "../support/Pages/navigationPage";
+import { navigationPage } from "./Pages/navigationPage";
 import { repositoryPage } from "./Pages/reposistoryPage";
+import { testCasePage } from "./Pages/testCasePage"
 
 /**
  * @memberof cy
@@ -99,8 +100,6 @@ Cypress.Commands.add('createTestSuit', (name, description, preconditions ) => {
   cy.get(projectPage.searchForProjectInput).clear().type('TestProject');
   cy.xpath(projectPage.createdProjectSelection).click();
 
-  cy.wait(3000);
-
   cy.get(repositoryPage.createATestSuitBtn).click();
   cy.get(repositoryPage.testSuitName).clear().type(name);
   cy.get(repositoryPage.partnetSuitInput).click();
@@ -112,3 +111,20 @@ Cypress.Commands.add('createTestSuit', (name, description, preconditions ) => {
   cy.get(repositoryPage.createBtn).click();
 })
 
+/**
+ * @memberof cy
+ * @method createTestCase
+ * @param title add title
+ * @param statusOptions add the option
+ */
+
+Cypress.Commands.add('createTestCase', (title,statusOptions) => {
+  cy.get(repositoryPage.createCaseBtn).click();
+  cy.get(testCasePage.titleInput).clear().type(title);
+  cy.get(testCasePage.statusInput).click();
+  cy.get(testCasePage.statusInput).type(statusOptions);
+  cy.get(testCasePage.statusInput).type("{downArrow}").type("{enter}");
+
+  // cy.get(testCasePage.statusOption.replace("%", "Draft")).click();
+
+})
