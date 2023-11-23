@@ -9,7 +9,9 @@ const projectPage = {
     kebabMenu: ".ZwgkIF > .svg-inline--fa",
     kebabRemoveBtn: '[class="KXyzbV IhDC1_ rHqCyR"]',
     kebabDeleteProjectBtn: ".b_jd28 > .ZwgkIF",
-    //xPath 
+    createdProjectSelection: ".MfvNFg",
+
+    //XPath 
     projAccessTypeRadio: {
         private: "//*[contains(text(), 'Private')]",
         public: "//*[contains(text(), 'Public')]"
@@ -18,8 +20,7 @@ const projectPage = {
         addAllMemb: "//*[contains(text(), 'Add all members to this project')]",
         dontAddMemb: '//*[contains(text(), "Don\'t add members")]'
     },
-    createAProjectBtn: "//*[contains(text(), 'Create project')]",
-    createdProjectSelection: "//*[contains(text(), 'TestProject')]"
+    createAProjectBtn: "//*[contains(text(), 'Create project')]"
 }
 
 module.exports = {

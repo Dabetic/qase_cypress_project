@@ -1,33 +1,29 @@
-import {repositoryPage} from "../support/Pages/reposistoryPage";
-import {testCasePage} from "../support/Pages/testCasePage";
-
 beforeEach(() => {
   cy.login('milos.dabetic@gmail.com', 'Milosdabetic90&');
 })
 
 describe('qase', () => {
 
-  it.skip('createNewProject', () => {
+  it('createNewProject', () => {
 
-    cy.createProject('TestProject', 
-    'TP', 
+    cy.createProject('TestProject1', 
+    'TP1', 
     'Testing description text', 
     'Private', 
     "Don't add members");
-
-
   });
 
   it('createTestSuite', () => {
 
-    cy.createTestSuit("nameT", "desc1", "no Preconditions");
-    cy.createTestCase("Test Case 1", "Draft");
-
+    cy.createTestSuit("Test Suite 1", "Project root", "Description 1", "No Preconditions");
   });
 
-  it.skip('createTestCase', () => {
-    cy.createTestCase("test case 1", "Draft")
+  it('createTestCase', () => {
 
+    cy.createTestCase("Test Case 1", "Draft",
+        "New desc", "Name Test", "Normal",
+        "Medium","Functional","E2E",
+        "No","Not set", "Positive", "Automated" );
   });
 
   afterEach(() => {
@@ -36,10 +32,10 @@ describe('qase', () => {
 
   })
 
-  // after(() => {
+  after(() => {
 
-  //   cy.deleteCreatedProject();
-
-  // })
+    cy.login('milos.dabetic@gmail.com', 'Milosdabetic90&');
+    cy.deleteCreatedProject();
+  })
 
 })
